@@ -1,4 +1,4 @@
-Project Description
+Interview App
 ===================
 
 Scheduling interviews is a burden in most of the companies. When you want to schedule
@@ -40,7 +40,7 @@ Solution
     - HR manager should be able to get possible interview time slots by inputting both Candidate ID and Interviewer ID to another API.
 
 
-Inprovemet
+Improvements
 **********
 
 1.  Can you suggest a better solution to the above mentioned interview scheduling problem?
