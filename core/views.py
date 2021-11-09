@@ -94,3 +94,12 @@ class ScheduleTime(generics.GenericAPIView):
         data = self.serializer_class(request.data)
         return Response(data.data)
 
+
+# Todo: Schedule confirmation
+# Todo: Schedule Cancellation
+# Todo: Schedule Confirmation Mail
+# Todo: authorization tokens of the user should be place in Redis
+
+
+
+
