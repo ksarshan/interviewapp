@@ -40,4 +40,24 @@ Solution
     - HR manager should be able to get possible interview time slots by inputting both Candidate ID and Interviewer ID to another API.
 
 
+Inprovemet
+**********
+
+1.  Can you suggest a better solution to the above mentioned interview scheduling problem?
+
+    - If the interviewer is  available at the time of candidate registration, we can automatically schedule the interview
+    - Interview update and cancellation option
+    - Update engaged timeslots of interviewer as unavailable time or busy time
+
+2   If you had some more time how would you improve your solution?
+
+    - Cancellation is possible
+    -  The authorization tokens of the user should be place in Redis and validate the token using a custom
+       middleware or a decorator (avoid the db hit)
+    -  Implement celery for the background task (eg auto scheduling)
+
+
+
+
+
 
