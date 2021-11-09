@@ -2,12 +2,21 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import status, generics
-from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, BasePermission
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from core.models import RegisterTimeSlots
 from core.serializers import AvailabilitySerializer, AvailableScheduleSerializer
+
+
+class IsSuperUser(BasePermission):
+    """
+    Allows access only to admin users.
+    """
+
+    def has_permission(self, request, view):
+        return bool(request.user and request.user.is_staff and request.user.is_superuser)
 
 
 class Availability(generics.ListCreateAPIView):
@@ -58,7 +67,7 @@ class Availability(generics.ListCreateAPIView):
 
 
 class ScheduleTime(generics.GenericAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsSuperUser,)
     serializer_class = AvailableScheduleSerializer
     queryset = RegisterTimeSlots.objects.all().order_by('-id')
 
